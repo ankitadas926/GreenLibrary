@@ -1,0 +1,268 @@
+.topnav{
+	background-color:#5cb85c;
+	height:50px;
+}
+.topnav>ul{		
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+	display : inline;
+}
+.open-login, .open-catalogue, .open-home{
+    float : right;
+    width: 10%;
+    text-transform:  CAPITALIZE;
+    text-decoration: none;
+    color: #f2f2f2;
+    text-align: center;
+}
+    
+.open-login-link,.open-catalogue-link , .open-home-link{ 
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+}
+body {
+	background-color: #EAFAF1;
+	margin: 0;
+    font-family: helvetica;
+}
+ 
+
+/* Slideshow container */
+.slideshow-container {
+	max-width: 750px;
+	position: relative;
+	margin: auto;
+	height : 80%;   
+}
+.my-slides {
+	width:100%;
+	height:450px;
+}
+/* Next & previous buttons */
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 40%;
+	width: auto;
+	margin-top: -22px;
+	padding: 10px;
+	background-color:transparent;
+	color:white;
+	font-weight: bold;
+	font-size: 30px;
+	border-radius: 0 3px 3px 0;
+	border:none;
+}
+
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+ }
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+	background-color: #919191;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+	cursor:pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+ }
+
+.dot.active, .dot:hover {
+	background-color: #717171;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {
+	padding: 10px 16px;
+}
+.modal-body-loginform {
+	padding: 20px
+}
+.modal-body-loginform-input {
+    margin-bottom: 30px;
+}
+
+.modal-body-loginform-input label{
+    width:100px;
+    display:inline-block;
+}
+
+.modal-body-loginform-input input{
+    border: none;
+    border-bottom: solid 1px #ccc;
+	padding-left : 30px;
+	outline: none;
+}
+    
+.submit-btn{
+	background-color: #92e692;
+    width: 100%;
+    height: 5%;
+    margin-bottom: 20px;
+	box-shadow: 3px 3px 8px #888888;
+    border: none;
+}
+/* Login failure message */
+.modal-body-failmsg{
+    display:none;
+    color: red;
+    padding-top: 15px;
+}
+.modal-body-forgetpwd{
+    display:none;
+    padding-top: 15px;
+    padding-bottom:  15px;
+}
+
+.logged-in:hover .user{
+    display: block;
+}
+
+/* Logout modal */
+.user {
+    background-color: #b7ecb7;
+    display:none;   
+}
+.user ul{
+    list-style:none;
+    padding:0px;
+    text-align: center;
+
+}
+.user li{
+    cursor: pointer;
+    border-bottom: solid 1px #ccc;
+    padding: 14% 0px;
+    color: #827e7e;
+}
+
+.user-profile{
+    text-decoration: none;
+    color: #827e7e;
+}
+
+/* Book List */
+.booklist{
+	display:block;
+	background-color:rgb(199, 245, 237);
+}
+
+.book-container {
+    display: table-row;
+}
+
+.book-container-image {
+    display: table-cell;
+    padding: 20px;
+}
+
+.book-container-image img{
+    height: 210px;
+}
+
+.book-container-text {
+    display: table-cell;
+    vertical-align: top;
+    padding: 20px;
+}
+
+/* profile page */
+.profile-container{
+    display:table-row;
+    
+}
+
+.profile-img, .profile-details {
+    display:table-cell;
+    vertical-align: top;
+    padding: 70px;
+}
+
+.profile-img img{
+    height: 70%;
+}
+
+.book-details-link{
+    padding-top:20px;
+    color: blue;
+    cursor: pointer;
+}
+
+.book-borrow-table{
+    display:table;
+    width: 100%;
+}
+
+.book-borrow-row{
+    display:table-row;
+}
+
+.book-borrow-details{
+    display:table-cell;
+    vertical-align: top;
+    padding: 20px;
+    text-decoration: underline;
+}
+.book-borrow-container{
+    display:none;
+}

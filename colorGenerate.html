@@ -1,0 +1,60 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="colorGenerate.css">
+</head>
+<body>
+    <h1>Color Generator</h1>
+    <div class='name-input'>
+        <input class='text-box' type="text" name="Name" placeholder="Enter Name"></input>
+        <button class='color-btn' onclick="createDiv()">Generate</button>
+    </div>
+</body>
+<script>
+    var nameField=document.getElementsByName("Name")[0];
+
+    var key = {
+        ENTER : 13
+    };
+
+    nameField.addEventListener('keyup', function(event){
+        if (event.keyCode == key.ENTER){
+            createDiv();
+        }
+    });
+
+    function createDiv(){
+        if(nameField.value!='')
+        {
+            var containerDiv = createElement(document.body, 'div', 'name-circle');
+
+            var colorDiv = createElement(containerDiv, 'div', 'color');
+
+            var fullNameDiv = createElement(containerDiv, 'div', 'fullName');
+       
+            extractNameLetter(colorDiv, fullNameDiv);
+            setBackgroundColor(colorDiv);
+            nameField.value = '';
+        }
+    }
+    function createElement(parent, tagName, className){
+        var element = document.createElement(tagName);
+        element.className = className;
+        parent.appendChild(element);
+        return element;
+    }
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+         color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    function setBackgroundColor(colorbox){
+         colorbox.style['background-color']=getRandomColor();       
+    }
+    function extractNameLetter(colorbox, namebox){
+        var letter=nameField.value[0];
+        colorbox.innerHTML=letter;
+        namebox.innerHTML=nameField.value;
+    }
+</script>

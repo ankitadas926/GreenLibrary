@@ -1,0 +1,52 @@
+body {
+    font-family:  helvetica;
+}
+h1{
+    text-align: center;
+}
+.color{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 85px;
+    margin: 1%;
+    border-top: 10px;
+    text-transform: uppercase;
+   }
+.color-btn{
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 ;
+    background-color: #4CAF50;
+    color: aliceblue;
+    text-align: center;
+    border : none;
+    margin: 16px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 24px;
+    outline: none;
+}
+.text-box{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    padding: 10px 24px;
+    outline: none;
+    border-bottom: solid 1px rgb(59, 58, 58);
+
+
+}
+
+.fullName {
+    margin: 1%;
+    font-size: 25px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.name-circle{
+    display: inline-block;
+    padding: 20px;
+}
+.name-input {
+    text-align: center;
+}

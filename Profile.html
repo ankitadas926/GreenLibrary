@@ -1,0 +1,95 @@
+<head>
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Styles/library.css">
+    <link rel="shortcut icon" href="Images/favicon.png" type="image/x-png">
+  </head>
+  <body>
+  
+  <!--Top navigation bar : Login link-->
+  <div class="topnav">
+      <ul>
+          <li class= "open-login"><i class="fas fa-user"></i>
+              <a class="open-login-link" href="javascript:void(0);">Login</a>
+              <!--Logout menu-->
+               <div class="user">
+                  <ul>
+                      <!--<li class="user-profile">Profile</li> -->
+                      <li class="logout">Logout</li>
+                  </ul>
+              </div>
+          </li>
+            <li class= "open-catalogue"><i class="fas fa-book"></i><a class = 'open-catalogue-link' href="catalogue.html">Catalogue</a></li>
+            <li class= "open-home"><i class="fas fa-home"></i><a class='open-home-link' href="library.html">Home</a></li>
+      </ul>
+  </div>
+
+  <!-- Modal -->
+	<div id="loginModal" class="modal">
+
+        <!-- Modal content -->
+            <div class="modal-content">
+                    <div class="modal-header">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2> Login </h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-body-loginform">
+                            <div id="login-form" name="login-form">
+                                <div class="modal-body-loginform-input">
+                                    <label>Username</label>
+                                    <input type="text" placeholder="Enter Username" name="userName" required>
+                                </div>
+                                <div class="modal-body-loginform-input">
+                                    <label>Password</label>
+                                    <input type="password" placeholder="Enter Password" name="passWord" required>
+                                </div>
+                                <button type="button" class="submit-btn" onclick="validateCredential()">Login</button>
+                            </div>
+                            <input type="checkbox" checked="checked"> Remember me
+                            <!-- Login failure message-->
+                            <div class="modal-body-failmsg"> Your Username and/or Password is incorrect</div>	
+                            <div class="modal-body-forgetpwd">
+                                <a  href="https://www.google.com">Forget Password</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+     </div>
+
+  <div class="profile-container">
+        <div class="profile-img">
+            <img src="Images/user-image.jpg" >
+        </div>
+        <div class="profile-details">
+            
+            <div>
+                <h1>Ankita Das</h1>
+                <h4>Junior Quality Analyst</h4>
+                <h4><i class="fas fa-envelope"></i> adas@travelrepublic.co.uk</h4>
+                
+            </div>
+            
+            <div><i class="fas fa-phone"></i> +91 9632185596</div>
+            
+            <div class="book-details-link">View Details</div>
+        </div>
+        
+  </div>
+  <div class="book-borrow-container">
+    <div class="book-borrow-table">
+        <div class="book-borrow-row">
+            <div class="book-borrow-details">S.no</div>
+            <div class="book-borrow-details">Book name</div>
+            <div class="book-borrow-details">Author Name</div>
+            <div class="book-borrow-details">Borrow date</div>
+            <div class="book-borrow-details">Return date</div>
+            <div class="book-borrow-details">Status</div>
+        </div>
+    </div>
+   </div>
+ 
+
+  <script src="js/login.js"></script>
+  <script src="js/userProfile.js"></script>
+
+  </body>
