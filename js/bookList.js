@@ -31,7 +31,7 @@ function createBookListHTML(books){
                         <h3 class='book-title'>`+book.title+`</h3>
                         <h4 class='book-subtitle'>`+book.subtitle+`</h4>
                         <div class='book-author'>Author : `+book.author +`</div>
-                        <div class='book-published'>Published on : `+formatDate(book.published)+`</div>
+                        <div class='book-published'>Published on : `+formatDate(book.published, "DD-MM-YYYY day time")+`</div>
                         <div class='book-publisher'>Publisher : `+book.publisher+`</div>
                         <div class='book-pages'>Pages : `+book.pages+`</div>
                         <div class='book-description'>Description  : `+book.description+`</div>
@@ -46,12 +46,5 @@ function createBookListHTML(books){
 }
 
 
-/*formatting the date for display*/
 
-var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-function formatDate(dateStr) {
-    var date = new Date(dateStr);
-    var formattedDate = date.getDate() +" " + months[date.getMonth()] +" "+ date.getFullYear();
-    return formattedDate;
-}
 

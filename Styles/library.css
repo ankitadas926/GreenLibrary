@@ -261,7 +261,7 @@ body {
     display:table-cell;
     vertical-align: top;
     padding: 20px;
-    text-decoration: underline;
+    
 }
 .book-borrow-container{
     display:none;
