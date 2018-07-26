@@ -83,7 +83,7 @@ function validateCredential(userName,passWord){
 			credential(response,creden.userName);
         }
     }
-	xhttp.open('POST','http://10.22.22.39:8081/login',true);
+	xhttp.open('POST','http://10.22.22.43:8081/login',true);
 	xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8")
     xhttp.send(JSON.stringify(creden));
 

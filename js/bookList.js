@@ -10,7 +10,7 @@ function getBookList(){
             createBookListHTML(response.books);
         }
     }
-    xhttp.open('GET','http://10.22.22.39:8081/list_books',true);
+    xhttp.open('GET','http://10.22.22.43:8081/list_books',true);
     xhttp.send();
 
 }
@@ -18,7 +18,6 @@ function getBookList(){
 getBookList();
 
 function createBookListHTML(books){
-    console.log(books);
     var bookHtml = "";
     for (i=0;i<books.length;i++)
     {
@@ -31,7 +30,7 @@ function createBookListHTML(books){
                         <h3 class='book-title'>`+book.title+`</h3>
                         <h4 class='book-subtitle'>`+book.subtitle+`</h4>
                         <div class='book-author'>Author : `+book.author +`</div>
-                        <div class='book-published'>Published on : `+formatDate(book.published, "DD-MM-YYYY day time")+`</div>
+                        <div class='book-published'>Published on : `+dateFormat.display(book.published, "DD-MM-YYYY")+`</div>
                         <div class='book-publisher'>Publisher : `+book.publisher+`</div>
                         <div class='book-pages'>Pages : `+book.pages+`</div>
                         <div class='book-description'>Description  : `+book.description+`</div>

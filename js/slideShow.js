@@ -1,35 +1,60 @@
 //manual slide show//
-var slideIndex = 1;
-showSlides(slideIndex);
 
-function plusSlides(n) {
-	slideIndex += n; 
-    showSlides(slideIndex);
-}
-function plusDots(n) {
-    slideIndex = n;
-	showSlides(slideIndex);
-}
-function showSlides(n) {
-    var i;
-    var x = document.getElementsByClassName("my-slides");
-    if (n > x.length) {slideIndex = 1} 
-    if (n < 1) {slideIndex = x.length} ;
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none"; 
+var carousel = {
+
+    nextslide : function(n) {
+        slideIndex += n; 
+        showSlides(slideIndex)},
+
+    nextdot : function(n) {
+        slideIndex = n;
+        showSlides(slideIndex)},
+
+    showSlides :function() {
+        
+         if (carousel.slideIndex >carousel.slideCount) {
+            carousel.slideIndex = 1;
+        } 
+        if (carousel.slideIndex < 1) {
+            carousel.slideIndex = carousel.slideCount;
+        } 
+        carousel.slideEl.src = carouselImageSrc[slideIndex];
+            
+    },
+
+    showDots :function() {
+      
+        for (i = 0; i < dotElement.length; i++) {
+            dotElement[i].style["background-color"] = "#839192"; 
+        }
+        dotElement[slideIndex-1].style["background-color"] = "#334455"; 		   
+    },
+
+    init : function(el,data){
+
+        slideIndex = data.index ||1;
+        slideCount = data.count;
+        slideEl = el.slide;
+        dotEl = el.dot;
+
+        carousel.showSlides();
+        carousel.showDots();
+
     }
-    x[slideIndex-1].style.display = "block"; 
-	showDots(slideIndex);
-	console.log('slideIndex = '+ slideIndex);
-	console.log('slideIndex-1 = '+ (slideIndex-1));
-	console.log('n = '+ n);
-}
-//dots show//
-function showDots(n) {
-    var x = document.getElementsByClassName("dot");
-	 for (i = 0; i < x.length; i++) {
-        x[i].style["background-color"] = "#839192"; 
-    }
-    x[n-1].style["background-color"] = "#334455"; 		   
+    
 }
 
+// initializing Carousel
+
+
+carousel.init(
+        {
+            slide : elements.slide,
+            dot : elements.dot
+        },
+        {
+            index : 1,
+            count : carouselImageSrc.length
+        }       
+
+);
