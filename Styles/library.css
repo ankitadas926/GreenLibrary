@@ -70,17 +70,18 @@ body {
 }
 
 /* The dots/bullets/indicators */
-.dot {
+.dot-circle {
 	cursor:pointer;
 	height: 15px;
 	width: 15px;
 	margin: 0 2px;
 	background-color: #bbb;
 	border-radius: 50%;
-	display: inline-block;
+    display: inline-block;
+    /* #839192   */
  }
 
-.dot.active, .dot:hover {
+.dot-circle.active, .dot-circle:hover {
 	background-color: #717171;
 }
 
@@ -265,4 +266,8 @@ body {
 }
 .book-borrow-container{
     display:none;
+}
+
+.dot-circle.current{
+    background-color: #334455;
 }

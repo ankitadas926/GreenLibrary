@@ -9,18 +9,42 @@ var carouselImageSrc = [
 
 var bookImageSrc = [
     "Images/books1.jpg",
-    "Images/books1.jpg",
-    "Images/books1.jpg",
-    "Images/books1.jpg",
-    "Images/books1.jpg",
-    "Images/books1.jpg",
-    "Images/books1.jpg",
-    "Images/books1.jpg"    
+    "Images/books2.jpg",
+    "Images/books3.jpg",
+    "Images/books4.jpg",
+    "Images/books5.jpg",
+    "Images/books6.jpg",
+    "Images/books7.jpg",
+    "Images/books8.jpg"    
 ];
 
 var elements = {
-    slide = document.querySelector(".my-slides"),
-    dot = document.querySelectorAll(".dot"),
-    prev_btn = document.querySelector(".prev"),
-    next_btn =  document.querySelector(".next")
+    slide : document.querySelector(".my-slides"),
+    dot : document.querySelectorAll(".dot"),
+    prev_btn : document.querySelector(".prev"),
+    next_btn :  document.querySelector(".next"),
+    dot : document.querySelector(".dot-container"),
+
+    login : document.querySelector(".open-login"),
+    userProfile : document.querySelector(".user"),
+    
+    loginLink : document.querySelector(".open-login a"),
+
+    userName : document.querySelector(".modal-body-loginform-input input[name = 'userName']"),
+    passWord :  document.querySelector(".modal-body-loginform-input input[name = 'passWord']"),
+    loginBtn : document.querySelector (".submit-btn"),
+    logoutBtn : document.querySelector(".logout"),
+ 
+    modal : document.querySelector("#loginModal"),
+    close : document.querySelector(".close"),
+
+    failMsg : document.querySelector(".modal-body-failmsg"),
+    forgetPwd : document.querySelector(".modal-body-forgetpwd"),
+
+    viewDetails : document.querySelector(".book-details-link"),
+    bookBorrowContainer : document.querySelector(".book-borrow-container")
+};
+
+var session = {
+    userName : sessionStorage.getItem('userName')
 };

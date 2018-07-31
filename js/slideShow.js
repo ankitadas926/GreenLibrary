@@ -2,45 +2,82 @@
 
 var carousel = {
 
-    nextslide : function(n) {
-        slideIndex += n; 
-        showSlides(slideIndex)},
+    createDots : function(){
+        var dotHtml = '';
+        for (i = 0; i < carousel.count; i++){
+            dotHtml += 
+            `<span class="dot-circle"></span>` ;
+        }
+        elements.dot.innerHTML = dotHtml;
+    },
 
-    nextdot : function(n) {
-        slideIndex = n;
-        showSlides(slideIndex)},
+    bind : function(){
+
+        var allDots =  document.querySelectorAll(".dot-circle");
+        for(var i=0; i < carousel.count;i++){
+            allDots[i].addEventListener("click",function(index){
+                return function(){
+                    carousel.slideIndex = index;
+                    carousel.start();
+                }
+            }(i));
+        }
+
+        elements.prev_btn.addEventListener("click",function(){
+            carousel.changeSlide(-1);
+            }
+        );
+        elements.next_btn.addEventListener("click",function(){
+            carousel.changeSlide(1);
+            } 
+        );
+        
+    },
+
+    changeSlide : function(n) {
+        carousel.slideIndex += n; 
+        carousel.start();
+    },
 
     showSlides :function() {
         
-         if (carousel.slideIndex >carousel.slideCount) {
-            carousel.slideIndex = 1;
+         if (carousel.slideIndex >= carousel.count) {
+            carousel.slideIndex = 0;
         } 
-        if (carousel.slideIndex < 1) {
-            carousel.slideIndex = carousel.slideCount;
+        if (carousel.slideIndex < 0) {
+            carousel.slideIndex = carousel.count - 1;
         } 
-        carousel.slideEl.src = carouselImageSrc[slideIndex];
+        carousel.slideEl.src = carouselImageSrc[carousel.slideIndex];
             
     },
+    
 
     showDots :function() {
-      
-        for (i = 0; i < dotElement.length; i++) {
-            dotElement[i].style["background-color"] = "#839192"; 
-        }
-        dotElement[slideIndex-1].style["background-color"] = "#334455"; 		   
+        var allDots =  elements.dot.querySelectorAll(".dot-circle");
+        for(var i=0; i < carousel.count;i++){
+            allDots[i].className = "dot-circle" ;
+         }
+        allDots[carousel.slideIndex].className += " current";
+        	   
     },
 
     init : function(el,data){
 
-        slideIndex = data.index ||1;
-        slideCount = data.count;
-        slideEl = el.slide;
-        dotEl = el.dot;
+        carousel.slideIndex = data.index || 0;
+        carousel.count = data.count;
+        carousel.slideEl = el.slide;
+        carousel.dotEl = el.dot;
 
+        carousel.createDots();
+        carousel.bind();
+        carousel.start();
+       
+    },
+
+    start : function(){
         carousel.showSlides();
         carousel.showDots();
-
-    }
+    },
     
 }
 
@@ -53,8 +90,9 @@ carousel.init(
             dot : elements.dot
         },
         {
-            index : 1,
+            index : 0,
             count : carouselImageSrc.length
         }       
 
 );
+
