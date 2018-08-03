@@ -8,7 +8,7 @@ var carouselImageSrc = [
 ];
 
 var bookImageSrc = [
-    "Images/books1.jpg",
+    "Images/books1.png",
     "Images/books2.jpg",
     "Images/books3.jpg",
     "Images/books4.jpg",
@@ -28,7 +28,7 @@ var elements = {
     login : document.querySelector(".open-login"),
     userProfile : document.querySelector(".user"),
     
-    loginLink : document.querySelector(".open-login a"),
+    loginLink : document.querySelector(".open-login-link"),
 
     userName : document.querySelector(".modal-body-loginform-input input[name = 'userName']"),
     passWord :  document.querySelector(".modal-body-loginform-input input[name = 'passWord']"),
@@ -42,7 +42,10 @@ var elements = {
     forgetPwd : document.querySelector(".modal-body-forgetpwd"),
 
     viewDetails : document.querySelector(".book-details-link"),
-    bookBorrowContainer : document.querySelector(".book-borrow-container")
+    bookBorrowContainer : document.querySelector(".book-borrow-container"),
+
+    search : document.querySelector(".search input"),
+    books : document.querySelector(".book-container")
 };
 
 var session = {

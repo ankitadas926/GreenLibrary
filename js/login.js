@@ -10,6 +10,12 @@ var signin ={
 	},
 	close : function(){
 		elements.modal.style.display ="none";
+		elements.failMsg.style.display = "none";
+		elements.forgetPwd.style.display = "none";
+		elements.userName.value = '';
+		elements.passWord.value ='';
+		elements.userName.style.borderBottom = "solid 1px #ccc";
+		elements.passWord.style.borderBottom = "solid 1px #ccc";
 	},
 	set : function(){
 		signin.username = elements.userName.value;
@@ -22,14 +28,34 @@ var signin ={
 		elements.close.addEventListener("click",signin.close);
 
 		elements.loginBtn.addEventListener('click',function(event){
-			signin.set();
-			signin.getResponse();
+			if(elements.userName.value =='' & elements.passWord.value==''){
+				elements.userName.style.borderBottom = "solid 1px red";
+				elements.passWord.style.borderBottom = "solid 1px red";
+			}
+			else{
+				signin.set();
+				signin.getResponse();
+			}
+			
+		});
+
+		elements.userName.addEventListener('keyup',function(event){
+			if (event.keyCode == 13){
+				signin.set();
+				signin.getResponse();
+			}
+			else{
+				elements.userName.style.borderBottom = "solid 1px #ccc";
+			}
 		});
 
 		elements.passWord.addEventListener('keyup',function(event){
 			if (event.keyCode == 13){
 				signin.set();
 				signin.getResponse();
+			}
+			else{
+				elements.passWord.style.borderBottom = "solid 1px #ccc";
 			}
 		});
 
@@ -76,6 +102,7 @@ var signin ={
 
 		elements.loginLink.innerHTML = signin.username;		
 		elements.login.className +=  ' logged-in';
+		elements.login.removeEventListener("click",signin.show)
 	},
 	
 	logout : function(){
@@ -106,18 +133,6 @@ var signin ={
 };
 
 signin.start();
-
-
-
-
-//session user name check//
-
-
-// if(sessionUserName!=null){
-// 	loginLink.innerHTML= sessionUserName;
-// 	login.className +=  ' logged-in';
-// }
-// /
 
 
 

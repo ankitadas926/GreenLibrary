@@ -9,7 +9,7 @@
 	<div class="topnav">
 		<ul>
 			<li class= "open-login"><i class="fas fa-user"></i>
-				<a class='open-login-link' href="javascript:void(0);"> Login</a>
+				<div class='open-login-link' href="javascript:void(0);"> Login</div>
 			<!--Logout menu-->
 			<div class="user">
 					<ul>
@@ -19,7 +19,7 @@
 					</ul>
 				</div>
 			</li>
-			<li class= "open-home"><i class="fas fa-home"></i><a class='open-home-link' href="library.html">Home</a></li>
+			<li class= "open-home"><i class="fas fa-home"></i><a class='open-home-link' href="index.html">Home</a></li>
 		</ul>
 	</div>
 
@@ -56,14 +56,23 @@
 		</div>
 	</div>
 
+
 <!-- Books Listing -->
 
 	<div id="bookList" class="booklist">
 
 		<!-- content -->
-		<div id="test"></div>
+		<div class ="search">
+			<i class="fas fa-search"></i>
+			<input type="text" placeholder="Search Book" name="search" >
+		</div>
+		<div class ="book-container"></div>
+			
+		
 	</div>
 
+
+	<script src="js/inventory.js"></script>
 	<script src="js/dateFormat.js"></script>
 	<script src="js/login.js"></script>
 	<script src="js/bookList.js"></script>
