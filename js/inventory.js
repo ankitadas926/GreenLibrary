@@ -25,14 +25,14 @@ var elements = {
     next_btn :  document.querySelector(".next"),
     dot : document.querySelector(".dot-container"),
 
-    login : document.querySelector(".open-login"),
+    openLogin : document.querySelector(".open-login"),
     userProfile : document.querySelector(".user"),
     
     loginLink : document.querySelector(".open-login-link"),
 
     userName : document.querySelector(".modal-body-loginform-input input[name = 'userName']"),
     passWord :  document.querySelector(".modal-body-loginform-input input[name = 'passWord']"),
-    loginBtn : document.querySelector (".submit-btn"),
+    loginBtn : document.querySelector (".login-btn"),
     logoutBtn : document.querySelector(".logout"),
  
     modal : document.querySelector("#loginModal"),
@@ -45,7 +45,13 @@ var elements = {
     bookBorrowContainer : document.querySelector(".book-borrow-container"),
 
     search : document.querySelector(".search input"),
-    books : document.querySelector(".book-container")
+    books : document.querySelector(".book-container"),
+
+    signup : document.querySelector(".modal-body-signup"),    
+    signupBtn : document.querySelector (".signup-btn"),
+    login : document.querySelector(".modal-body-login a"),
+    header : document.querySelector(".modal-header"),
+    headerText :  document.querySelector(".modal-header h2")
 };
 
 var session = {

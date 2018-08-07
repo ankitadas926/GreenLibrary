@@ -156,13 +156,22 @@ body {
 	outline: none;
 }
     
-.submit-btn{
+.login-btn{
 	background-color: #92e692;
     width: 100%;
     height: 5%;
     margin-bottom: 20px;
 	box-shadow: 3px 3px 8px #888888;
     border: none;
+}
+.signup-btn {
+    background-color: #e4e453;
+    width: 100%;
+    height: 5%;
+    margin-bottom: 20px;
+	box-shadow: 3px 3px 8px #888888;
+    border: none;
+    display :none;
 }
 /* Login failure message */
 .modal-body-failmsg{
@@ -174,6 +183,9 @@ body {
     display:none;
     padding-top: 15px;
     padding-bottom:  15px;
+}
+.modal-body-signup {
+    padding-top: 15px;
 }
 
 .logged-in:hover .user{

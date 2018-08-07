@@ -16,6 +16,7 @@ var signin ={
 		elements.passWord.value ='';
 		elements.userName.style.borderBottom = "solid 1px #ccc";
 		elements.passWord.style.borderBottom = "solid 1px #ccc";
+		signup.close();
 	},
 	set : function(){
 		signin.username = elements.userName.value;
@@ -23,13 +24,16 @@ var signin ={
 	},
 	bind : function(){
 
-		elements.login.addEventListener("click",signin.show);
+		elements.openLogin.addEventListener("click",signin.show);
 
 		elements.close.addEventListener("click",signin.close);
 
 		elements.loginBtn.addEventListener('click',function(event){
-			if(elements.userName.value =='' & elements.passWord.value==''){
+			if(elements.userName.value ==''){
 				elements.userName.style.borderBottom = "solid 1px red";
+				
+			}
+			else if(elements.passWord.value==''){
 				elements.passWord.style.borderBottom = "solid 1px red";
 			}
 			else{
@@ -101,8 +105,8 @@ var signin ={
 	success : function(){
 
 		elements.loginLink.innerHTML = signin.username;		
-		elements.login.className +=  ' logged-in';
-		elements.login.removeEventListener("click",signin.show)
+		elements.openLogin.className +=  ' logged-in';
+		elements.openLogin.removeEventListener("click",signin.show)
 	},
 	
 	logout : function(){
@@ -132,7 +136,48 @@ var signin ={
 
 };
 
+
+var signup = {
+	username : '',
+	password : '',
+	mode : "login",
+
+	bind : function(){
+		elements.signup.addEventListener('click',function(event){
+			if(signup.mode == "login"){
+				signup.signupDisplay();
+			}
+			else {
+				signup.loginDisplay();
+			}
+			
+		});
+		
+	},
+	signupDisplay : function(){
+		this.mode = "signup";
+		elements.headerText.innerHTML = "Sign Up";
+		elements.signupBtn.style.display = "block";
+		elements.loginBtn.style.display = "none";
+		elements.header.style.backgroundColor = "#e4e453";
+		elements.signup.innerHTML = `Already have an account ? <a  href="javascript:void(0);">Login</a>`;
+
+	},
+	loginDisplay : function (){
+		this.mode = "login";
+		elements.headerText.innerHTML = "Login";
+		elements.header.style.backgroundColor = "#5cb85c";
+		elements.loginBtn.style.display = "block";
+		elements.signupBtn.style.display = "none";
+		elements.signup.innerHTML = `Don't have an account ?<a  href="javascript:void(0);"> Signup</a>`;
+		
+	},
+	close :function(){
+		mode : "login";
+		signup.loginDisplay();
+	}
+};
+
 signin.start();
-
-
+signup.bind();
 
