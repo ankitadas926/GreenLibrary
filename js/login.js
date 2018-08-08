@@ -75,16 +75,9 @@ var signin ={
 
 		var credential = {"userName":signin.username,"passWord":signin.password} ; 
 
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange=function() {
-			if(this.readyState==4 && this.status==200){
-				console.log(this.responseText);
-				signin.validateCredential(JSON.parse(this.responseText));
-				}
-			}
-		xhttp.open('POST','http://10.22.22.43:8081/login',true);
-		xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8")
-		xhttp.send(JSON.stringify(credential));
+		get("POST","http://10.22.22.43:8081/login",credential,this.validateCredential,this.log)
+
+		
 	},
 	
 	validateCredential :function(response){
@@ -108,6 +101,11 @@ var signin ={
 		elements.openLogin.className +=  ' logged-in';
 		elements.openLogin.removeEventListener("click",signin.show)
 	},
+
+	log : function(response){
+        console.log("reponse is :"+response);
+
+    }, 
 	
 	logout : function(){
 	

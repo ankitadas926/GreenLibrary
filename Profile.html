@@ -19,41 +19,47 @@
               </div>
           </li>
             <li class= "open-catalogue"><i class="fas fa-book"></i><a class = 'open-catalogue-link' href="catalogue.html">Catalogue</a></li>
-            <li class= "open-home"><i class="fas fa-home"></i><a class='open-home-link' href="library.html">Home</a></li>
+            <li class= "open-home"><i class="fas fa-home"></i><a class='open-home-link' href="index.html">Home</a></li>
       </ul>
   </div>
 
   <!-- Modal -->
 	<div id="loginModal" class="modal">
 
-        <!-- Modal content -->
-            <div class="modal-content">
-                    <div class="modal-header">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <h2> Login </h2>
-                    </div>
-                    <div class="modal-body">
-                        <div class="modal-body-loginform">
-                            <div id="login-form" name="login-form">
-                                <div class="modal-body-loginform-input">
-                                    <label>Username</label>
-                                    <input type="text" placeholder="Enter Username" name="userName" required>
-                                </div>
-                                <div class="modal-body-loginform-input">
-                                    <label>Password</label>
-                                    <input type="password" placeholder="Enter Password" name="passWord" required>
-                                </div>
-                                <button type="button" class="submit-btn" onclick="validateCredential()">Login</button>
-                            </div>
-                            <input type="checkbox" checked="checked"> Remember me
-                            <!-- Login failure message-->
-                            <div class="modal-body-failmsg"> Your Username and/or Password is incorrect</div>	
-                            <div class="modal-body-forgetpwd">
-                                <a  href="https://www.google.com">Forget Password</a>
-                            </div>
-                        </div>
-                    </div>
+            <!--Login Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" >&times;</span>
+                <h2> Login </h2>
             </div>
+            <div class="modal-body">
+                <div class="modal-body-loginform">
+                    <div name="login-form" id="login-form">
+                        <div class="modal-body-loginform-input">
+                            <label>Username</label>
+                            <input type="text" placeholder="Enter Username" name="userName" required>
+                        </div>
+                        <div class="modal-body-loginform-input">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter Password" name="passWord" required>
+                        </div>
+                        <button type="button" class="login-btn">Login</button>
+                        <button type="button" class="signup-btn">Sign Up</button>
+                    </div>
+                    
+                    <input type="checkbox" checked="checked"/> Remember me
+                    <!-- Login failure message-->
+                    <div class="modal-body-failmsg"> Your Username and/or Password is incorrect</div>	
+                    <div class="modal-body-forgetpwd">
+                        <a  href="https://www.google.com">Forgot Password</a>
+                    </div>
+                    <div class="modal-body-signup">Don't have an account ?
+                        <a  href="javascript:void(0);"> Signup</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
      </div>
 
   <div class="profile-container">
@@ -69,21 +75,22 @@
         
   </div>
   <div class="book-borrow-container">
-    <div class="book-borrow-table">
-        <div class="book-borrow-row">
-            <h3 class="book-borrow-details">S.no</h3>
-            <h3 class="book-borrow-details">Book name</h3>
-            <h3 class="book-borrow-details">Author Name</h3>
-            <h3 class="book-borrow-details">Borrow date</h3>
-            <h3 class="book-borrow-details">Return date</h3>
-            <h3 class="book-borrow-details">Status</h3>
+        <div class="book-borrow-table">
+            <div class="book-borrow-header">
+                <h3 class="book-borrow-details">S.no</h3>
+                <h3 class="book-borrow-details">Book name</h3>
+                <h3 class="book-borrow-details">Author Name</h3>
+                <h3 class="book-borrow-details">Borrow date</h3>
+                <h3 class="book-borrow-details">Return date</h3>
+                <h3 class="book-borrow-details">Status</h3>
+            </div>         
         </div>
-         
-    </div>
    </div>
- 
-    <script src="js/dateFormat.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/userProfile.js"></script>
+
+    <script src="js/network.js"></script>
+	<script src="js/inventory.js"></script>
+	<script src="js/dateFormat.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/userProfile.js"></script>
 
   </body>

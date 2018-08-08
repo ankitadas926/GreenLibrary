@@ -43,6 +43,8 @@ var elements = {
 
     viewDetails : document.querySelector(".book-details-link"),
     bookBorrowContainer : document.querySelector(".book-borrow-container"),
+    bookBorrowTable : document.querySelector(".book-borrow-table"),
+    profile : document.querySelector(".profile-details-1"),
 
     search : document.querySelector(".search input"),
     books : document.querySelector(".book-container"),

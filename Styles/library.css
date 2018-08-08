@@ -277,14 +277,24 @@ body {
     color: blue;
     cursor: pointer;
 }
-
-.book-borrow-table{
-    display:table;
-    width: 100%;
+.book-borrow-container {
+    display: none;
+    padding: 35px;
 }
 
-.book-borrow-row{
+.book-borrow-table{
+    display: table;
+    width: 100%;
+    background-color: #c6e2c6;
+    border-radius: 20px;
+}
+
+.book-borrow-header{
     display:table-row;
+    background-color: #5bb85b;
+}
+.book-borrow-row {
+    display:  table-row;
 }
 
 .book-borrow-details{

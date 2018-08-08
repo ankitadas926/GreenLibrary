@@ -36,35 +36,27 @@ var bookList = {
 
     getBookList :function(onSuccess,onFailure){
 
-        get("GET","http://10.22.22.43:8081/list_books","",onSuccess,onFailure)
-        // var xhttp= new XMLHttpRequest();
-        // xhttp.onreadystatechange=function() {
-        //     if(this.readyState==4 && this.status==200){
-                
-        //         onSuccess(JSON.parse(this.responseText));
-               
-        //     }
-        // }
-        // xhttp.open('GET','http://10.22.22.43:8081/list_books',true);
-        // xhttp.send();
-    
+        get("GET","http://10.22.22.43:8081/list_books","",this.start,this.log);
+        
     },
+
+    start :function(result){
+        bookList.allBooks = result;
+        bookList.createHTML(result.books);
+        search.init();
+    },
+
     log : function(response){
         console.log("reponse is :"+response);
 
     },    
-    
-    init : function(){
-        this.getBookList(function(result){
-            bookList.allBooks = result;
-            bookList.createHTML(result.books);
-            search.init();
-        },this.log);
-    },
-
     finish : function(){
         elements.books.innerHTML = bookList.code;
         this.code = '';
+    },
+
+    init : function(){
+        this.getBookList();
     }
            
        
