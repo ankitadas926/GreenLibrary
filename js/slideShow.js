@@ -2,6 +2,16 @@
 
 var carousel = {
 
+    images : function(){
+        var html = '';
+        for(i=0;i<this.count;i++){
+            html += `<div>
+                        <img src =`+carouselImageSrc[i]+`>
+                    </div>`;
+        }
+        elements.slideContainer.innerHTML += html;
+    },
+
     createDots : function(){
         var dotHtml = '';
         for (i = 0; i < carousel.count; i++){
@@ -47,7 +57,7 @@ var carousel = {
         if (carousel.slideIndex < 0) {
             carousel.slideIndex = carousel.count - 1;
         } 
-        carousel.slideEl.src = carouselImageSrc[carousel.slideIndex];
+       // carousel.slideEl.src = carouselImageSrc[carousel.slideIndex];
             
     },
     
@@ -68,6 +78,7 @@ var carousel = {
         carousel.slideEl = el.slide;
         carousel.dotEl = el.dot;
 
+        carousel.images();
         carousel.createDots();
         carousel.bind();
         carousel.start();

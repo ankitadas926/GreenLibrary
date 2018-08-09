@@ -1,10 +1,11 @@
 
 
 var carouselImageSrc = [
-    "Images/lib1.jpg",
-    "Images/lib2.jpg",
-    "Images/lib3.jpg",
-    "Images/lib4.jpg"
+    "Images/library1.jpeg",
+    "Images/library2.jpg",
+    "Images/library3.jpg",
+    "Images/library4.jpg",
+    "Images/library5.jpg"
 ];
 
 var bookImageSrc = [
@@ -19,6 +20,7 @@ var bookImageSrc = [
 ];
 
 var elements = {
+    slideContainer : document.querySelector(".slideshow-container"),
     slide : document.querySelector(".my-slides"),
     dot : document.querySelectorAll(".dot"),
     prev_btn : document.querySelector(".prev"),
@@ -48,6 +50,8 @@ var elements = {
 
     search : document.querySelector(".search input"),
     books : document.querySelector(".book-container"),
+    homeSearch : document.querySelector(".search-unit input"),
+    searchIcon : document.querySelector(".search-unit div i"),
 
     signup : document.querySelector(".modal-body-signup"),    
     signupBtn : document.querySelector (".signup-btn"),
@@ -57,5 +61,6 @@ var elements = {
 };
 
 var session = {
-    userName : sessionStorage.getItem('userName')
+    userName : sessionStorage.getItem('userName'),
+    search : sessionStorage.getItem('search')
 };

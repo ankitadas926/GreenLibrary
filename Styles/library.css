@@ -34,14 +34,53 @@ body {
 
 /* Slideshow container */
 .slideshow-container {
-	max-width: 750px;
-	position: relative;
-	margin: auto;
-	height : 80%;   
+	width : 7000px;
+    height : 500px;
+	 
+}
+.slideshow-container div{
+    display: inline-block;
+    width: 1366px;
+    
+}
+.slideshow-container img{
+    width: 100%;
+    height: 100%;
 }
 .my-slides {
-	width:100%;
-	height:450px;
+    width:100%;
+    height: 100%;
+}
+
+.search-unit-container {
+    position:  absolute;
+    top: 243px;
+    left: 338px;
+    width: 50%;
+    height: 15%;
+    background-color: #464242;
+    opacity: 0.85;
+}
+
+.search-unit input[type="text"] {
+    width: 92%;
+    height: 50%;
+    font-size: 20px;
+    padding: 0px;
+    border: 0px;
+    outline: none;
+    padding-left: 15px;
+    border-right: solid 1px #615b4a;
+}
+
+.search-unit {
+    background-color: white;
+    width: 95%;
+    margin: 23.5px 17px;
+}
+.search-unit>div>i{    
+    margin: 15px 15px;
+    cursor: pointer;
 }
 /* Next & previous buttons */
 .prev, .next {
