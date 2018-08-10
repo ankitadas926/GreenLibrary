@@ -32,23 +32,25 @@ body {
 }
  
 
-/* Slideshow container */
-.slideshow-container {
-	width : 7000px;
-    height : 500px;
-	 
+/* Slideshow */
+.slide{
+    
+    height: 500px;
+    overflow: hidden;
 }
-.slideshow-container div{
+.slide-container{
+    
+    height: 500px;
+    transform: translateX(0px);
+    transition-duration: 1s;
+}
+.slide-container div{
     display: inline-block;
-    width: 1366px;
+    
     
 }
-.slideshow-container img{
+.slide-container img{
     width: 100%;
-    height: 100%;
-}
-.my-slides {
-    width:100%;
     height: 100%;
 }
 

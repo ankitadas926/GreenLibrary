@@ -20,8 +20,9 @@ var bookImageSrc = [
 ];
 
 var elements = {
-    slideContainer : document.querySelector(".slideshow-container"),
-    slide : document.querySelector(".my-slides"),
+    slideContainer : document.querySelector(".slide-container"),
+    slideDiv : function(){return document.querySelectorAll(".slide-container div")},
+    slide : document.querySelector(".slide"),
     dot : document.querySelectorAll(".dot"),
     prev_btn : document.querySelector(".prev"),
     next_btn :  document.querySelector(".next"),
