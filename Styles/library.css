@@ -33,25 +33,27 @@ body {
  
 
 /* Slideshow */
-.slide{
-    
-    height: 500px;
+
+.slide-show-container{
     overflow: hidden;
 }
 .slide-container{
     
-    height: 500px;
+    height: 550px;
     transform: translateX(0px);
     transition-duration: 1s;
 }
-.slide-container div{
-    display: inline-block;
-    
+.slides{
+    display: inline-block;    
     
 }
 .slide-container img{
     width: 100%;
     height: 100%;
+}
+.dot-container {
+    text-align:  center;
+    padding-top: 20px;
 }
 
 .search-unit-container {
@@ -128,8 +130,12 @@ body {
 }
 
 /* The Modal (background) */
+
+#loginModal, #signupModal{
+    display: none;
+}
 .modal {
-    display: none; /* Hidden by default */
+   
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
@@ -153,17 +159,22 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     }
 
+.modal-body-login-link, .modal-body-signup-link {
+    padding-top: 10px;
+}
 
 /* The Close Button */
-.close {
+.login-close,.signup-close {
     color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.login-close:hover,
+.login-close:focus,
+.signup-close:hover,
+.signup-close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
@@ -178,19 +189,19 @@ body {
 .modal-body {
 	padding: 10px 16px;
 }
-.modal-body-loginform {
+.modal-body-login-form, .modal-body-signup-form{
 	padding: 20px
 }
-.modal-body-loginform-input {
+.modal-body-login-form-input, .modal-body-signup-form-input{
     margin-bottom: 30px;
 }
 
-.modal-body-loginform-input label{
+.modal-body-login-form-input label, .modal-body-signup-form-input label{ 
     width:100px;
     display:inline-block;
 }
 
-.modal-body-loginform-input input{
+.modal-body-login-form-input input, .modal-body-signup-form-input input{
     border: none;
     border-bottom: solid 1px #ccc;
 	padding-left : 30px;
@@ -206,16 +217,16 @@ body {
     border: none;
 }
 .signup-btn {
-    background-color: #e4e453;
+    background-color: #92e692;
     width: 100%;
     height: 5%;
     margin-bottom: 20px;
 	box-shadow: 3px 3px 8px #888888;
     border: none;
-    display :none;
+    
 }
 /* Login failure message */
-.modal-body-failmsg{
+.login-modal-body-msg, .signup-modal-body-msg{
     display:none;
     color: red;
     padding-top: 15px;
@@ -231,6 +242,7 @@ body {
 
 .logged-in:hover .user{
     display: block;
+    z-index: 1;
 }
 
 /* Logout modal */

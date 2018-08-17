@@ -3,64 +3,108 @@ var signin ={
 
 	username : '',
 	password : '',
+	fullname : '',
 
 	show : function(){
-		elements.modal.style.display ="block";
-		elements.userName.focus();
+		elements.loginModal.style.display ="block";
+		elements.loginUserName.focus();
 	},
-	close : function(){
-		elements.modal.style.display ="none";
-		elements.failMsg.style.display = "none";
+
+	hide : function(){
+		elements.loginModal.style.display ="none";
+		elements.loginMsg.style.display = "none";
 		elements.forgetPwd.style.display = "none";
-		elements.userName.value = '';
-		elements.passWord.value ='';
-		elements.userName.style.borderBottom = "solid 1px #ccc";
-		elements.passWord.style.borderBottom = "solid 1px #ccc";
-		signup.close();
 	},
+	
+	close : function(){
+		signin.hide();
+		signin.clear();	
+		
+	},
+
 	set : function(){
-		signin.username = elements.userName.value;
-		signin.password = elements.passWord.value;
+		signin.username = elements.loginUserName.value;
+		signin.password = elements.loginPassWord.value;
 	},
+	clear : function(){
+		elements.loginUserName.value = '';
+		elements.loginPassWord.value ='';
+		elements.loginUserName.style.borderBottom = "solid 1px #ccc";
+		elements.loginPassWord.style.borderBottom = "solid 1px #ccc";
+	},
+	requiredChecks : function(){
+
+		var err = [];
+		if(elements.loginUserName.value ==''){
+			err.push(elements.loginUserName);
+					
+		}
+
+		if(elements.loginPassWord.value==''){
+			err.push(elements.loginPassWord);			
+		}
+
+		if(err.length == 0){
+			return true;
+		}
+		else {
+			for( var i = 0; i< err.length; i++){
+				err[i].style.borderBottom = "solid 1px red";
+			}
+			return false;
+		}		
+	},
+
 	bind : function(){
 
 		elements.openLogin.addEventListener("click",signin.show);
 
-		elements.close.addEventListener("click",signin.close);
-
+		elements.loginClose.addEventListener("click",signin.close);
+		
 		elements.loginBtn.addEventListener('click',function(event){
-			if(elements.userName.value ==''){
-				elements.userName.style.borderBottom = "solid 1px red";
+			
+			if(signin.requiredChecks()){
+				signin.set();
+				signin.getResponse();
+			}
+		});
+		
+		
+		elements.loginUserName.addEventListener('keyup',function(event){
+			if (event.keyCode == 13 ){
+				if( signin.requiredChecks()){
+					signin.set();
+					signin.getResponse();
+				}
 				
 			}
-			else if(elements.passWord.value==''){
-				elements.passWord.style.borderBottom = "solid 1px red";
-			}
 			else{
-				signin.set();
-				signin.getResponse();
-			}
-			
-		});
-
-		elements.userName.addEventListener('keyup',function(event){
-			if (event.keyCode == 13){
-				signin.set();
-				signin.getResponse();
-			}
-			else{
-				elements.userName.style.borderBottom = "solid 1px #ccc";
+				elements.loginUserName.style.borderBottom = "solid 1px #ccc";
+				elements.loginMsg.style.display = "none";
+				elements.forgetPwd.style.display = "none";
 			}
 		});
 
-		elements.passWord.addEventListener('keyup',function(event){
-			if (event.keyCode == 13){
-				signin.set();
-				signin.getResponse();
+		elements.loginPassWord.addEventListener('keyup',function(event){
+			if (event.keyCode == 13 ){
+				if( signin.requiredChecks()){
+					signin.set();
+					signin.getResponse();
+				}
+				
 			}
 			else{
-				elements.passWord.style.borderBottom = "solid 1px #ccc";
+				elements.loginPassWord.style.borderBottom = "solid 1px #ccc";
+				elements.loginMsg.style.display = "none";
+				elements.forgetPwd.style.display = "none";
+
 			}
+		});
+
+		elements.signup.addEventListener('click',function(){
+			signup.show();
+			signin.hide();
+			signin.clear();
 		});
 
 		elements.logoutBtn.addEventListener('click',function(event){
@@ -75,29 +119,31 @@ var signin ={
 
 		var credential = {"userName":signin.username,"passWord":signin.password} ; 
 
-		get("POST","http://10.22.22.43:8081/login",credential,this.validateCredential,this.log)
+		post("http://10.22.22.43:8081/login",credential,this.validateCredential,this.log)
 
 		
 	},
 	
 	validateCredential :function(response){
 		
-		if(response==true){
-						
+		if(response.authenticated==true){
+
+			signin.fullname = response.fullName;
 			sessionStorage.setItem('userName', signin.username);
+			sessionStorage.setItem('fullName', signin.fullname);
 			signin.success();
 			signin.close();
 			
 		}
 		else {
-			elements.failMsg.style.display = "block";
+			elements.loginMsg.style.display = "block";
 			elements.forgetPwd.style.display = "block";
 		}
 	},
 
 	success : function(){
-
-		elements.loginLink.innerHTML = signin.username;		
+		
+		elements.loginLink.innerHTML = signin.fullname;		
 		elements.openLogin.className +=  ' logged-in';
 		elements.openLogin.removeEventListener("click",signin.show)
 	},
@@ -110,18 +156,19 @@ var signin ={
 	logout : function(){
 	
 		sessionStorage.removeItem('userName');
+		sessionStorage.removeItem('fullName');
 		location.reload();
-		if(window.location == "file:///D:/Library/Profile.html"){
-			window.location.replace("/D:/Library/library.html");
+		if(window.location.pathname == "/Profile.html"){
+			window.location.replace("/index.html");
 		}
 		document.querySelector(".logged-in").className = "open-login";
 	},
 
-	start : function(){
+	start : function(){		
 		
-		signin.bind();
-		if(session.userName!=null){
-			signin.username = session.userName;
+		if(sessionStorage.getItem('userName')!=null){
+			signin.fullname = sessionStorage.getItem('userName');
+			signin.username = sessionStorage.getItem('fullName');
 			signin.success ();
 		}
 
@@ -129,53 +176,15 @@ var signin ={
 	finish : function(){
 		signin.userName = '';
 		signin.password = '';
+		signin.fullname = '';
 
+	},
+	init : function(){
+		signin.bind();
+		signin.start();
 	}
 
 };
 
-
-var signup = {
-	username : '',
-	password : '',
-	mode : "login",
-
-	bind : function(){
-		elements.signup.addEventListener('click',function(event){
-			if(signup.mode == "login"){
-				signup.signupDisplay();
-			}
-			else {
-				signup.loginDisplay();
-			}
-			
-		});
-		
-	},
-	signupDisplay : function(){
-		this.mode = "signup";
-		elements.headerText.innerHTML = "Sign Up";
-		elements.signupBtn.style.display = "block";
-		elements.loginBtn.style.display = "none";
-		elements.header.style.backgroundColor = "#e4e453";
-		elements.signup.innerHTML = `Already have an account ? <a  href="javascript:void(0);">Login</a>`;
-
-	},
-	loginDisplay : function (){
-		this.mode = "login";
-		elements.headerText.innerHTML = "Login";
-		elements.header.style.backgroundColor = "#5cb85c";
-		elements.loginBtn.style.display = "block";
-		elements.signupBtn.style.display = "none";
-		elements.signup.innerHTML = `Don't have an account ?<a  href="javascript:void(0);"> Signup</a>`;
-		
-	},
-	close :function(){
-		mode : "login";
-		signup.loginDisplay();
-	}
-};
-
-signin.start();
-signup.bind();
+signin.init();
 

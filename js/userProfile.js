@@ -47,7 +47,7 @@ var profile = {
     },
 
     getUserDetails :function(){
-      //  get("GET",'http://10.22.22.39:8081/userdetails',"",this.createHTML,this.log)
+        post('http://10.22.22.39:8081/login',sessionStorage.getItem('userName'),this.createHTML,this.log)        
     },
 
     createHTML : function(){

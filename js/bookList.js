@@ -36,7 +36,7 @@ var bookList = {
 
     getBookList :function(onSuccess,onFailure){
 
-        get("GET","http://10.22.22.43:8081/list_books","",this.start,this.log);
+        get("http://10.22.22.43:8081/list_books","",this.start,this.log);
         
     },
 

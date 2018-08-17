@@ -22,26 +22,33 @@ var bookImageSrc = [
 var elements = {
     slideContainer : document.querySelector(".slide-container"),
     slideDiv : function(){return document.querySelectorAll(".slide-container div")},
-    slide : document.querySelector(".slide"),
-    dot : document.querySelectorAll(".dot"),
+    slideShow : document.querySelector(".slide-show"),
     prev_btn : document.querySelector(".prev"),
     next_btn :  document.querySelector(".next"),
     dot : document.querySelector(".dot-container"),
+
+    loginModal :document.querySelector("#loginModal"),
+    signupModal : document.querySelector("#signupModal"),
+    loginClose : document.querySelector(".login-close"),
+    signupClose : document.querySelector(".signup-close"),
 
     openLogin : document.querySelector(".open-login"),
     userProfile : document.querySelector(".user"),
     
     loginLink : document.querySelector(".open-login-link"),
 
-    userName : document.querySelector(".modal-body-loginform-input input[name = 'userName']"),
-    passWord :  document.querySelector(".modal-body-loginform-input input[name = 'passWord']"),
+    loginUserName : document.querySelector(".modal-body-login-form-input input[name = 'userName']"),
+    loginPassWord :  document.querySelector(".modal-body-login-form-input input[name = 'passWord']"),
+    signupUserName : document.querySelector(".modal-body-signup-form-input input[name = 'userName']"),
+    signupPassWord :  document.querySelector(".modal-body-signup-form-input input[name = 'passWord']"),
+    signupFullName :  document.querySelector(".modal-body-signup-form-input input[name = 'fullName']"),
     loginBtn : document.querySelector (".login-btn"),
+    signupBtn : document.querySelector (".signup-btn"),
     logoutBtn : document.querySelector(".logout"),
  
-    modal : document.querySelector("#loginModal"),
-    close : document.querySelector(".close"),
-
-    failMsg : document.querySelector(".modal-body-failmsg"),
+    
+    loginMsg : document.querySelector(".login-modal-body-msg"),
+    signupMsg : document.querySelector(".signup-modal-body-msg"),
     forgetPwd : document.querySelector(".modal-body-forgetpwd"),
 
     viewDetails : document.querySelector(".book-details-link"),
@@ -54,14 +61,11 @@ var elements = {
     homeSearch : document.querySelector(".search-unit input"),
     searchIcon : document.querySelector(".search-unit div i"),
 
-    signup : document.querySelector(".modal-body-signup"),    
-    signupBtn : document.querySelector (".signup-btn"),
-    login : document.querySelector(".modal-body-login a"),
-    header : document.querySelector(".modal-header"),
-    headerText :  document.querySelector(".modal-header h2")
+    signup : document.querySelector(".modal-body-signup-link"),    
+    login : document.querySelector(".modal-body-login-link")
+    
 };
 
 var session = {
-    userName : sessionStorage.getItem('userName'),
-    search : sessionStorage.getItem('search')
+     search : sessionStorage.getItem('search')
 };

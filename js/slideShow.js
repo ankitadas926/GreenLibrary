@@ -2,24 +2,36 @@
 
 var carousel = {
 
-    createImages : function(){
-        var html = '';
+    create : function(){
+        var html = `<div class="slide-show-container">
+                        <div class="slide-container"></div>
+                        <button class="prev" >&#10094;</button>
+                        <button class="next" >&#10095;</button>
+                        <div class = "dot-container"></div>
+                    </div>`;
+        
+        carousel.element.innerHTML = html;
+    },
+    createSlides : function(){
+
+        var html = ``;
         for(i=0;i<this.count;i++){
-            html += `<div>
+            html += `<div class = "slides">
                         <img src =`+carouselImageSrc[i]+`>
                     </div>`;
         }
-        elements.slideContainer.innerHTML = html;
+        document.querySelector(".slide-container").innerHTML = html;
+      
     },
     styles : function(){
 
         var slideDiv = elements.slideDiv();
-        elements.slideContainer.style.width = window.innerWidth * this.count;
+        document.querySelector(".slide-container").style.width = window.innerWidth * this.count;
         for(var i = 0;i < slideDiv.length ; i++){
             slideDiv[i].style.width = window.innerWidth;
         }
         
-        elements.slide.style.width = window.innerWidth;
+        carousel.element.style.width = window.innerWidth;
     },
 
     createDots : function(){
@@ -29,7 +41,7 @@ var carousel = {
             `<span class="dot-circle"></span>` ;
         }
         
-        elements.dot.innerHTML = dotHtml;
+        document.querySelector(".dot-container").innerHTML = dotHtml;
     },
 
     bind : function(){
@@ -44,11 +56,11 @@ var carousel = {
             }(i));
         }
 
-        elements.prev_btn.addEventListener("click",function(){
+        document.querySelector(".prev").addEventListener("click",function(){
             carousel.changeSlide(-1);
             }
         );
-        elements.next_btn.addEventListener("click",function(){
+        document.querySelector(".next").addEventListener("click",function(){
             carousel.changeSlide(1);
             } 
         );
@@ -70,11 +82,11 @@ var carousel = {
             carousel.slideIndex = carousel.count - 1;
         } 
 
-        elements.slideContainer.style.transform = `translateX(${-(this.slideIndex * window.innerWidth)}px)`;
+        document.querySelector(".slide-container").style.transform = `translateX(${-(this.slideIndex * window.innerWidth)}px)`;
     },    
 
     showDots :function() {
-        var allDots =  elements.dot.querySelectorAll(".dot-circle");
+        var allDots =  document.querySelectorAll(".dot-circle");
         for(var i=0; i < carousel.count;i++){
             allDots[i].className = "dot-circle" ;
          }
@@ -87,13 +99,16 @@ var carousel = {
         carousel.slideIndex = data.startIndex || 0;
         carousel.images = data.images;
         carousel.count = data.images.length;
-        carousel.slideEl = data.slide;
-        carousel.dotEl = data.dot;
+        carousel.element = data.element;
+        carousel.elementClass = this.element.className;
+        
 
 
-        carousel.createImages();
-        carousel.styles();
+        carousel.create();
+        carousel.createSlides();
         carousel.createDots();
+        carousel.styles();
+        
         carousel.bind();
         carousel.start();
        
@@ -111,12 +126,12 @@ var carousel = {
 
 carousel.init(
         {
-            slide : elements.slide,
-            dot : elements.dot,
-            startIndex : 1,
+            element : elements.slideShow,
+            startIndex : 0,
             images : carouselImageSrc
             
         }       
 
 );
+
 

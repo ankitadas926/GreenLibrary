@@ -1,4 +1,4 @@
-function get(method,URL,body,onSuccess,onFailure){
+function ajax(method,URL,body,onSuccess,onFailure){
     
     var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange=function() {
@@ -24,4 +24,12 @@ function get(method,URL,body,onSuccess,onFailure){
         
 }
 
+
+function post(URL,body,onSuccess,onFailure){
+    ajax('POST',URL,body,onSuccess,onFailure);
+}
+
+function get(URL,body,onSuccess,onFailure){
+    ajax('GET',URL,body,onSuccess,onFailure);
+}
        

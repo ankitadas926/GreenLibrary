@@ -24,44 +24,93 @@
 	</div>
 
 <!-- Modal -->
-	<div id="loginModal" class="modal">
+<div id="loginModal" class="modal">
 
 	<!--Login Modal content -->
 	<div class="modal-content">
-		<div class="modal-header">
-			<span class="close" >&times;</span>
-		<h2> Login </h2>
+	  <div class="modal-header">
+		  <span class="login-close" >&times;</span>
+	  <h2> Login </h2>
+	  </div>
+		<div class="modal-body">
+		  <div class="modal-body-login-form">
+			  <div name="login-form" id="login-form">
+				  <div class="modal-body-login-form-input">
+					  <label>Username</label>
+					  <input type="text" placeholder="Enter Username" name="userName" required>
+				  </div>
+				  <div class="modal-body-login-form-input">
+					  <label>Password</label>
+					  <input type="password" placeholder="Enter Password" name="passWord" required>
+				  </div>
+				  <button type="button" class="login-btn">Login</button>
+				  
+			  </div>
+			  
+			  <input type="checkbox" checked="checked"/> Remember me
+			  <!-- Login failure message-->
+			  <div class="login-modal-body-msg"> Your Username and/or Password is incorrect</div>	
+			  <div class="modal-body-forgetpwd">
+				  <a  href="https://www.google.com">Forgot Password</a>
+			  </div>
+			  <div class="modal-body-signup-link">Don't have an account ?
+				  <a  href="javascript:void(0);"> Signup</a>
+			  </div>
+  
 		</div>
-		  <div class="modal-body">
-			<div class="modal-body-loginform">
-				<div name="login-form" id="login-form">
-					<div class="modal-body-loginform-input">
-						<label>Username</label>
-						<input type="text" placeholder="Enter Username" name="userName" required>
+	   </div>
+	</div>
+  </div>
+  
+  
+  <!-- Modal -->
+<div id="signupModal" class="modal">
+
+	<!--Login Modal content -->
+	<div class="modal-content">
+	  <div class="modal-header">
+		  <span class="signup-close" >&times;</span>
+	  <h2> Sign Up </h2>
+	  </div>
+		<div class="modal-body">
+		  <div class="modal-body-signup-form">
+			  <div name="signup-form" id="signup-form">
+					<div class="modal-body-signup-form-input">
+						<label>Full Name</label>
+						<input type="text" placeholder="Enter full name" name="fullName" required>
 					</div>
-					<div class="modal-body-loginform-input">
+					<div class="modal-body-signup-form-input">
+						<label>Designation</label>
+						<input type="text" placeholder="Enter designation" name="designation" required>
+					</div>
+					<div class="modal-body-signup-form-input">
+						<label>Phone No.</label>
+						<input type="text" placeholder="Enter phone number" name="phone" required>
+					</div>
+					<div class="modal-body-signup-form-input">
+						<label>Username</label>
+						<input type="text" placeholder="Enter email id" name="userName" required>
+					</div>
+					<div class="modal-body-signup-form-input">
 						<label>Password</label>
 						<input type="password" placeholder="Enter Password" name="passWord" required>
 					</div>
-					<button type="button" class="login-btn">Login</button>
-					<button type="button" class="signup-btn">Sign Up</button>
-				</div>
-				
-				<input type="checkbox" checked="checked"/> Remember me
-				<!-- Login failure message-->
-				<div class="modal-body-failmsg"> Your Username and/or Password is incorrect</div>	
-				<div class="modal-body-forgetpwd">
-					<a  href="https://www.google.com">Forgot Password</a>
-				</div>
-				<div class="modal-body-signup">Don't have an account ?
-					<a  href="javascript:void(0);"> Signup</a>
-				</div>
-	
-		  </div>
-		 </div>
-	  </div>
+					
+					  <button type="button" class="signup-btn">Sign Up</button>
+			  </div>
+			  
+			  <input type="checkbox" checked="checked"/> Remember me
+			  <!-- Login failure message-->
+			  <div class="signup-modal-body-msg"> Your Username already exists.Try login</div>	
+			  
+			  <div class="modal-body-login-link">Already have an account ?
+				  <a  href="javascript:void(0);"> Login</a>
+			  </div>
+  
+		</div>
+	   </div>
 	</div>
-
+  </div>
 
 <!-- Books Listing -->
 
@@ -81,6 +130,7 @@
 	<script src="js/inventory.js"></script>
 	<script src="js/dateFormat.js"></script>
 	<script src="js/login.js"></script>
+	<script src="js/signup.js"></script>
 	<script src="js/bookList.js"></script>
 	<script src="js/search.js"></script>
 	
