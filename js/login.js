@@ -167,8 +167,8 @@ var signin ={
 	start : function(){		
 		
 		if(sessionStorage.getItem('userName')!=null){
-			signin.fullname = sessionStorage.getItem('userName');
-			signin.username = sessionStorage.getItem('fullName');
+			signin.fullname = sessionStorage.getItem('fullName');
+			signin.username = sessionStorage.getItem('userName');
 			signin.success ();
 		}
 

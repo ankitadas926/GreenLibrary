@@ -10,7 +10,6 @@
 }
 .open-login, .open-catalogue, .open-home{
     float : right;
-    width: 10%;
     text-transform:  CAPITALIZE;
     text-decoration: none;
     color: #f2f2f2;
@@ -58,29 +57,26 @@ body {
 
 .search-unit-container {
     position:  absolute;
-    top: 243px;
-    left: 338px;
+    top: calc(50% - 46px);
+    left: calc(25%);
     width: 50%;
-    height: 15%;
     background-color: #464242;
     opacity: 0.85;
 }
 
 .search-unit input[type="text"] {
-    width: 92%;
-    height: 50%;
+    width: calc(100% - 46px);
     font-size: 20px;
     padding: 0px;
     border: 0px;
     outline: none;
-    padding-left: 15px;
+    padding: 15px;
     border-right: solid 1px #615b4a;
 }
 
 .search-unit {
     background-color: white;
-    width: 95%;
-    margin: 23.5px 17px;
+    margin: 15px;
 }
 .search-unit>div>i{    
     margin: 15px 15px;
@@ -250,6 +246,7 @@ body {
     background-color: #9aea9a;
     display:none; 
     position: absolute;  
+    right: 0;
 }
 .user ul{
     list-style:none;
@@ -379,4 +376,47 @@ body {
     padding-left : 30px;
     outline: none;
     width: 98%;
+}
+
+/* book entry */
+ .entry {
+    width: 1200px;
+    display:  inline-block;
+}
+.entry h2{
+    text-align: center;
+    padding: 5px 0;
+}
+
+.entry ul {
+    list-style:  none;
+}
+
+.entry li {
+    /* display:  block; */
+    padding: 15px 20px;
+}
+
+.entry label {
+    width: 150px;
+    display:  inline-block;
+}
+
+.entry input[type="text"] {
+    outline:  none;
+    border:  none;
+    border-bottom: 1px solid #ccc;
+    width: 80%;
+    padding: 5px 5px;
+   
+}
+
+.entry button {
+    background-color: #92e692;
+    width: 100px;
+    height: 45px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 8px #888888;
+    border: none;
+    float: right
 }

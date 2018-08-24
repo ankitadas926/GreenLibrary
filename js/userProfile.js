@@ -17,10 +17,10 @@ var profile = {
 
     createUserDetailsHTML : function(details){
         var html =`<div>
-                        <h1>${details.Name}</h1>
-                        <h4>${details.Designation}</h4>
-                        <h4><i class="fas fa-envelope"></i> ${details.Email}</h4>
-                        <div><i class="fas fa-phone"></i> ${details.PhoneNumber}</div>
+                        <h1>${details.fullName}</h1>
+                        <h4>${details.designation}</h4>
+                        <h4><i class="fas fa-envelope"></i> ${details.userName}</h4>
+                        <div><i class="fas fa-phone"></i> ${details.phone}</div>
                     </div>`;
 
         if(details.ImageUrl){
@@ -47,12 +47,14 @@ var profile = {
     },
 
     getUserDetails :function(){
-        post('http://10.22.22.39:8081/login',sessionStorage.getItem('userName'),this.createHTML,this.log)        
+
+        var credential = {"userName":sessionStorage.getItem('userName')} ; 
+        post("http://10.22.22.43:8081/userdetails",credential,this.createHTML,this.log)        
     },
 
-    createHTML : function(){
-        this.createUserDetailsHTML();
-        this.createBookDetailsHTML();
+    createHTML : function(details){
+        profile.createUserDetailsHTML(details);
+        profile.createBookDetailsHTML();
     },
     log : function(response){
         console.log("reponse is :"+response);

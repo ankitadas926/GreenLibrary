@@ -134,4 +134,14 @@ carousel.init(
 
 );
 
+window.addEventListener('resize',function(){
+    carousel.init(
+        {
+            element : elements.slideShow,
+            startIndex : 0,
+            images : carouselImageSrc
+            
+        }     
+    )
+}); 
 

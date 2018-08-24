@@ -22,8 +22,8 @@ var signup = {
 
 	set : function(){
 		this.fullname = document.querySelector('.modal-body-signup-form-input input[name="fullName"]').value;
-		this.password = document.querySelector('.modal-body-signup-form-input input[name="designation"]').value;
-		this.password = document.querySelector('.modal-body-signup-form-input input[name="phone"]').value;
+		this.designation = document.querySelector('.modal-body-signup-form-input input[name="designation"]').value;
+		this.phone = document.querySelector('.modal-body-signup-form-input input[name="phone"]').value;
 		this.username = document.querySelector('.modal-body-signup-form-input input[name="userName"]').value;
 		this.password = document.querySelector('.modal-body-signup-form-input input[name="passWord"]').value;
 	},
