@@ -5,8 +5,8 @@ var search = {
     bookNames : [],
 
     getBookNames : function() {
-        for(i=0;i < bookList.allBooks.books.length;i++){
-            var book = bookList.allBooks.books[i];
+        for(i=0;i < bookList.allBooks.length;i++){
+            var book = bookList.allBooks[i];
             this.bookNames.push(book.title.toLowerCase());
         }
     },
@@ -24,7 +24,7 @@ var search = {
         if(search.searchedText !=null){
             for(var i=0; i<this.bookNames.length;i++){
                 if(this.bookNames[i].indexOf(search.searchedText)!= -1){
-                search.result.push(bookList.allBooks.books[i]);            
+                search.result.push(bookList.allBooks[i]);            
             }                 
          }   
        }

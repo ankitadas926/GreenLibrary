@@ -18,7 +18,7 @@ function ajax(method,URL,body,onSuccess,onFailure){
         }
         else if(method == "POST"){
             xhttp.open('POST',URL,true);
-            xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8")
+            xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8");
             xhttp.send(JSON.stringify(body));
         }
 		

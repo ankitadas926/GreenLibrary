@@ -1,6 +1,7 @@
 var bookEntry = {
 
-	name : '',
+	title : '',
+	subtitle : '',
 	author : '',
 	published : '',
 	publisher : '',
@@ -11,7 +12,8 @@ var bookEntry = {
 
 
 	set : function(){
-		this.name = document.querySelector('.entry input[name="Name"]').value;
+		this.title = document.querySelector('.entry input[name="Title"]').value;
+		this.subtitle = document.querySelector('.entry input[name="Subtitle"]').value;
 		this.author = document.querySelector('.entry input[name="Author"]').value;
 		this.published = document.querySelector('.entry input[name="Published"]').value;
 		this.publisher = document.querySelector('.entry input[name="Publisher"]').value;
@@ -20,28 +22,32 @@ var bookEntry = {
         this.website = document.querySelector('.entry input[name="Website"]').value;
         this.image = document.querySelector('.entry input[name="Image"]').value;
 	},
-
 	clear : function(){
-		elements.signupUserName.value = "";
-		elements.designation.value = "";
-		elements.phone.value = "";
-		elements.signupFullName.value = "";
-		elements.signupPassWord.value = "";
-    },
-    
-   
+		document.querySelector('.entry input[name="Title"]').value = "";
+		document.querySelector('.entry input[name="Subtitle"]').value = "";
+		document.querySelector('.entry input[name="Author"]').value = "";
+		document.querySelector('.entry input[name="Published"]').value = "";
+		document.querySelector('.entry input[name="Publisher"]').value = "";
+        document.querySelector('.entry input[name="Pages"]').value = "";
+        document.querySelector('.entry input[name="Description"]').value = "";
+        document.querySelector('.entry input[name="Website"]').value = "";
+        document.querySelector('.entry input[name="Image"]').value = "";
+	},
 	bind : function(){
 
 		document.querySelector(".save").addEventListener('click',function(){
-            this.set();
-            getResponse();
-        });
+            bookEntry.set();
+            bookEntry.getResponse();
+		});
+		
+		document.querySelector(".clear").addEventListener('click',bookEntry.clear);
     },
 
 	getResponse : function(){
 
 		var details = {
-            "name" : this.name,
+			"title" : this.title,
+			"subtitle" : this.subtitle,
             "author" : this.author ,
             "published" : this.published,
             "publisher" : this.publisher ,
@@ -51,12 +57,12 @@ var bookEntry = {
             "image":this.image		
 		} ; 
 
-		post("http://10.22.22.43:8081/signup",details,this.validateSave,this.log)
+		post("http://10.22.22.43:8081/addbook",details,bookEntry.validateSave,bookEntry.log);
 		
 	},
 	validateSave :function(response){
 		
-		if(response.status==true){
+		if(response==true){
 
 			document.querySelector(".save-msg").style.display = "block";
 									

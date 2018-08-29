@@ -15,8 +15,12 @@
     <h2>Book Details Entry</h2>
     <ul>
         <li >
-            <label>Name</label>
-            <input type="text" placeholder="Enter Name" name="Name" required>
+            <label>Title</label>
+            <input type="text" placeholder="Enter Title" name="Title" required>
+        </li>
+        <li >
+            <label>Sub Title</label>
+            <input type="text" placeholder="Enter Subtitle" name="Subtitle" required>
         </li>
         <li>
             <label>Author</label>
@@ -47,14 +51,15 @@
             <input type="text" placeholder="Enter Image Link" name="Image" required>
         </li>
     </ul>
-    <button class = "save" type="submit">Save</button>
-    <div class = "save-msg"> "Saved successfully !!"</div>
+    <button class = "save" type="button">Save</button>
+    <button class = "clear" type="button"><i class="fas fa-undo"></i>Clear</button>
+    <div class = "save-msg">Saved successfully</div>
 </div>
 
-</body>
 
 <script src="js/network.js"></script>
 <script src="js/inventory.js"></script>
+<script src="js/bookEntry.js"></script>
 
 
 

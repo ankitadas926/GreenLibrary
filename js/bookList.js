@@ -12,7 +12,7 @@ var bookList = {
             var book = books[i]; 
             
             this.code +=`<div class="row">
-                            <div>
+                            
                                 <div class="image">
                                     <img src="`+bookImageSrc[i]+`">
                                 </div>
@@ -26,7 +26,7 @@ var bookList = {
                                     <div class='book-description'>Description  : `+book.description+`</div>
                                     <div class='book-website'>website : <a href=`+book.website+`>`+book.website+`</a></div>
                                 </div>
-                            </div>
+                            
                         </div>`;
         }
         
@@ -36,13 +36,13 @@ var bookList = {
 
     getBookList :function(onSuccess,onFailure){
 
-        get("http://10.22.22.43:8081/list_books","",this.start,this.log);
+        get("http://10.22.22.43:8081/getbook","",this.start,this.log);
         
     },
 
     start :function(result){
         bookList.allBooks = result;
-        bookList.createHTML(result.books);
+        bookList.createHTML(result);
         search.init();
     },
 
